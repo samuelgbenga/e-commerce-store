@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/e-commerce-store/static/css/main.afd7172b.chunk.css",
-    "main.js": "/e-commerce-store/static/js/main.f8f82654.chunk.js",
-    "main.js.map": "/e-commerce-store/static/js/main.f8f82654.chunk.js.map",
-    "runtime-main.js": "/e-commerce-store/static/js/runtime-main.ce38add2.js",
-    "runtime-main.js.map": "/e-commerce-store/static/js/runtime-main.ce38add2.js.map",
-    "static/js/2.40d71b54.chunk.js": "/e-commerce-store/static/js/2.40d71b54.chunk.js",
-    "static/js/2.40d71b54.chunk.js.map": "/e-commerce-store/static/js/2.40d71b54.chunk.js.map",
-    "static/js/3.d64977ab.chunk.js": "/e-commerce-store/static/js/3.d64977ab.chunk.js",
-    "static/js/3.d64977ab.chunk.js.map": "/e-commerce-store/static/js/3.d64977ab.chunk.js.map",
+    "main.css": "/e-commerce-store/static/css/main.bdd4463d.chunk.css",
+    "main.js": "/e-commerce-store/static/js/main.36bd6926.chunk.js",
+    "main.js.map": "/e-commerce-store/static/js/main.36bd6926.chunk.js.map",
+    "runtime-main.js": "/e-commerce-store/static/js/runtime-main.5c09b2b6.js",
+    "runtime-main.js.map": "/e-commerce-store/static/js/runtime-main.5c09b2b6.js.map",
+    "static/js/2.b5a6c806.chunk.js": "/e-commerce-store/static/js/2.b5a6c806.chunk.js",
+    "static/js/2.b5a6c806.chunk.js.map": "/e-commerce-store/static/js/2.b5a6c806.chunk.js.map",
+    "static/js/3.b1baae4b.chunk.js": "/e-commerce-store/static/js/3.b1baae4b.chunk.js",
+    "static/js/3.b1baae4b.chunk.js.map": "/e-commerce-store/static/js/3.b1baae4b.chunk.js.map",
     "index.html": "/e-commerce-store/index.html",
-    "static/css/main.afd7172b.chunk.css.map": "/e-commerce-store/static/css/main.afd7172b.chunk.css.map",
-    "static/js/2.40d71b54.chunk.js.LICENSE.txt": "/e-commerce-store/static/js/2.40d71b54.chunk.js.LICENSE.txt",
+    "static/css/main.bdd4463d.chunk.css.map": "/e-commerce-store/static/css/main.bdd4463d.chunk.css.map",
+    "static/js/2.b5a6c806.chunk.js.LICENSE.txt": "/e-commerce-store/static/js/2.b5a6c806.chunk.js.LICENSE.txt",
     "static/media/logo.be646ae2.PNG": "/e-commerce-store/static/media/logo.be646ae2.PNG"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce38add2.js",
-    "static/js/2.40d71b54.chunk.js",
-    "static/css/main.afd7172b.chunk.css",
-    "static/js/main.f8f82654.chunk.js"
+    "static/js/runtime-main.5c09b2b6.js",
+    "static/js/2.b5a6c806.chunk.js",
+    "static/css/main.bdd4463d.chunk.css",
+    "static/js/main.36bd6926.chunk.js"
   ]
 }

@@ -1,34 +1,51 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
+  ThemeProvider,
+  createTheme,
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/logo.PNG";
 import useStyle from "./styles";
+import { green, blue } from "@material-ui/core/colors";
 
-const Navbar = () => {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: blue[500],
+    },
+    secondary: {
+      main: green[200],
+    },
+  },
+});
+const Navbar = ({ quantity }) => {
   const classes = useStyle();
+  const location = useLocation();
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AppBar className={classes.root}>
         <Toolbar>
-          <img src={logo} alt="logo" className={classes.img} />
+          <Typography component={Link} to="/e-commerce-store">
+            <img src={logo} alt="logo" className={classes.img} />
+          </Typography>
           <div className={classes.cartGrow} />
-          <IconButton aria-label="cart" color="action">
-            <Badge badgeContent={1} color="primary">
-              <ShoppingCart />
-            </Badge>
-          </IconButton>
+          {location.pathname === "/e-commerce-store" && (
+            <IconButton aria-label="cart" component={Link} to="/cart">
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          )}
         </Toolbar>
       </AppBar>
       <div className={classes.pushDown}></div>
-    </>
+    </ThemeProvider>
   );
 };
 

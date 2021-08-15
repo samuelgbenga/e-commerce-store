@@ -19,7 +19,8 @@ export default makeStyles(() => ({
     background: "#EEFFF1",
     display: "flex",
     justifyContent: "space-between",
-    padding: "0 10px",
+    padding: "0 5px",
+    paddingLeft: "0px",
   },
   content: {
     textAlign: "left",

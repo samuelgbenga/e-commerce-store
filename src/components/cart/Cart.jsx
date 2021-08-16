@@ -78,7 +78,7 @@ const Cart = ({ cart, empty, remove, update }) => {
       </Typography>
       {isEmpty ? <EmptyCart /> : <FilledCart />}
       <div className={classes.getMore}>
-        <Link to="/e-commerce-store" className={classes.link}>
+        <Link to="/e-commerce-store/" className={classes.link}>
           GET MORE ITEMS!!! <ShoppingBasket />
         </Link>
       </div>

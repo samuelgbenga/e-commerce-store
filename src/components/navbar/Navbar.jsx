@@ -31,11 +31,11 @@ const Navbar = ({ quantity }) => {
     <ThemeProvider theme={theme}>
       <AppBar className={classes.root}>
         <Toolbar>
-          <Typography component={Link} to="/e-commerce-store">
+          <Typography component={Link} to="/e-commerce-store/">
             <img src={logo} alt="logo" className={classes.img} />
           </Typography>
           <div className={classes.cartGrow} />
-          {location.pathname === "/e-commerce-store" && (
+          {location.pathname === "/e-commerce-store/" && (
             <IconButton aria-label="cart" component={Link} to="/cart">
               <Badge badgeContent={quantity} color="primary">
                 <ShoppingCart />

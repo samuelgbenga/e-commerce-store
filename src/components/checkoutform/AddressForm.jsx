@@ -21,10 +21,36 @@ const AddressForm = ({ checkoutToken }) => {
     id: code,
     label: name,
   }));
+
+  const subdivisions = Object.entries(shippingSubdivisions).map(
+    ([code, name]) => ({
+      id: code,
+      label: name,
+    })
+  );
+
+  const options = shippingOptions.map((option) => ({
+    id: option.id,
+    label: `${option.description}-(${option.price.formatted_with_symbol})`,
+  }));
+
   useEffect(() => {
     if (checkoutToken === null) return;
     fetchShippingCountries(checkoutToken?.id);
   }, [checkoutToken]);
+
+  useEffect(() => {
+    shippingCountry !== "" && fetchSubdivisions(shippingCountry);
+  }, [shippingCountry]);
+
+  useEffect(() => {
+    shippingSubdivision !== "" &&
+      fetchShippingOptions(
+        checkoutToken.id,
+        shippingCountry,
+        shippingSubdivision
+      );
+  }, [checkoutToken.id, shippingCountry, shippingSubdivision]);
 
   const fetchShippingCountries = async (checkoutTokenId) => {
     const { countries } = await commerce.services.localeListShippingCountries(
@@ -33,7 +59,24 @@ const AddressForm = ({ checkoutToken }) => {
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
   };
-  console.log(shippingCountries);
+
+  const fetchSubdivisions = async (countryCode) => {
+    const { subdivisions } = await commerce.services.localeListSubdivisions(
+      countryCode
+    );
+    setShippingSubdivisions(subdivisions);
+    setShippingSubdivision(Object.keys(subdivisions)[0]);
+  };
+
+  const fetchShippingOptions = async (checkoutTokenId, country, region) => {
+    const options = await commerce.checkout.getShippingOptions(
+      checkoutTokenId,
+      { country, region }
+    );
+    setShippingOptions(options);
+    setShippingOption(options[0].id);
+  };
+
   return (
     <div className={classes.formProvider}>
       <Typography variant="h6" gutterBottom align="center">
@@ -71,23 +114,25 @@ const AddressForm = ({ checkoutToken }) => {
             <SelectInput
               value={shippingCountry}
               handleOnChange={(value) => setShippingCountry(value)}
-              countries={countries}
+              optionList={countries}
               // name={testing}
               label="Shipping Country"
               className={classes.selectInput}
             />
-            {/* <SelectInput
-              value={testing}
-              name={testing}
+            <SelectInput
+              value={shippingSubdivision}
+              handleOnChange={(value) => setShippingSubdivision(value)}
+              optionList={subdivisions}
               label="Shipping Subdivision"
               className={classes.selectInput}
             />
             <SelectInput
-              value={testing}
-              name={testing}
+              value={shippingOption}
+              handleOnChange={(value) => setShippingOption(value)}
+              optionList={options}
               label="Shipping Options"
               className={classes.selectInput}
-            /> */}
+            />
           </Grid>
         </form>
       </FormProvider>

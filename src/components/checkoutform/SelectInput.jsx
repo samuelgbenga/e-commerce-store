@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import { InputLabel, MenuItem, Select } from "@material-ui/core";
 
-const SelectInput = ({ value, handleOnChange, label, countries }) => {
+const SelectInput = ({ value, handleOnChange, label, optionList, name }) => {
   return (
     <Grid item xs={12} sm={6}>
       <InputLabel align="left">{label}</InputLabel>
@@ -12,9 +12,9 @@ const SelectInput = ({ value, handleOnChange, label, countries }) => {
         value={value}
         onChange={(e) => handleOnChange(e.target.value)}
       >
-        {countries.map((country) => (
-          <MenuItem key={country.id} value={country.id}>
-            {country.label}
+        {optionList.map((option) => (
+          <MenuItem key={option.id} value={option.id}>
+            {option.label}
           </MenuItem>
         ))}
       </Select>

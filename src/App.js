@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Products, Navbar, Cart } from "./components";
+import { Products, Navbar, Cart, Checkout } from "./components";
 import { commerce } from "./lib/commerce";
 import "./App.css";
 function App() {
@@ -14,8 +14,8 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await commerce?.products.list();
-      console.log(data);
+      const { data } = await commerce.products.list();
+
       setProducts(data);
     } catch (e) {
       console.log("this is the error", e);
@@ -80,6 +80,9 @@ function App() {
             remove={handleRemoveFromCart}
             update={handleUpdateCartQty}
           />
+        </Route>
+        <Route path="/checkout">
+          <Checkout cart={cart} />
         </Route>
       </Switch>
     </Router>

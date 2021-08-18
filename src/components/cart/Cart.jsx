@@ -62,6 +62,8 @@ const Cart = ({ cart, empty, remove, update }) => {
             type="button"
             variant="contained"
             color="primary"
+            component={Link}
+            to="/checkout"
           >
             checkout
           </Button>
@@ -72,7 +74,7 @@ const Cart = ({ cart, empty, remove, update }) => {
 
   if (!cart.line_items) return <div className="loading">Loading...</div>;
   return (
-    <Container>
+    <Container className={classes.root}>
       <Typography className={classes.title} variant="h6">
         ITEMS YOU HAVE IN YOUR CART
       </Typography>

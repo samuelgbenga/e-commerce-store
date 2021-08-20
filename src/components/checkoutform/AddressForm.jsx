@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
 import { Button, Typography, Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
@@ -6,7 +7,7 @@ import FormInput from "./FormInput";
 import useStyle from "./styles";
 import SelectInput from "./SelectInput";
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -83,16 +84,25 @@ const AddressForm = ({ checkoutToken }) => {
         Address Form
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={null}>
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            next({
+              ...data,
+              shippingCountry,
+              shippingSubdivision,
+              shippingOption,
+            })
+          )}
+        >
           <Grid container spacing={3}>
             <FormInput
               label="First name"
-              name="first name"
+              name="firstName"
               placeholder="ex: Samuel"
             />
             <FormInput
               label="Last name"
-              name="last name"
+              name="lastName"
               placeholder="ex: Joseph"
             />
             <FormInput
@@ -115,7 +125,6 @@ const AddressForm = ({ checkoutToken }) => {
               value={shippingCountry}
               handleOnChange={(value) => setShippingCountry(value)}
               optionList={countries}
-              // name={testing}
               label="Shipping Country"
               className={classes.selectInput}
             />
@@ -134,6 +143,24 @@ const AddressForm = ({ checkoutToken }) => {
               className={classes.selectInput}
             />
           </Grid>
+          <div className={classes.addressButtons}>
+            <Button
+              component={Link}
+              to="/cart"
+              variant="outlined"
+              className={classes.addressButton}
+            >
+              Back To Cart
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={classes.addressButton}
+            >
+              Next
+            </Button>
+          </div>
         </form>
       </FormProvider>
     </div>

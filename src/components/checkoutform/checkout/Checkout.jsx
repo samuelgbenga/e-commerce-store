@@ -4,9 +4,6 @@ import {
   Stepper,
   StepLabel,
   Typography,
-  CircularProgress,
-  Divider,
-  Button,
   Step,
   createTheme,
   ThemeProvider,
@@ -32,6 +29,7 @@ const steps = ["Shipping Address", "Payment Details"];
 const Checkout = ({ cart }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
+  const [shippingData, setShippingData] = useState({});
   const classes = useStyle();
 
   useEffect(() => {
@@ -49,11 +47,27 @@ const Checkout = ({ cart }) => {
     generateToken();
   }, [cart]);
 
+  const next = (data) => {
+    setShippingData(data);
+    nextStep();
+  };
+
+  const nextStep = () => {
+    setActiveStep((prev) => prev + 1);
+  };
+  const prevStep = () => {
+    setActiveStep((prev) => prev - 1);
+  };
+
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} />
+      <AddressForm checkoutToken={checkoutToken} next={next} />
     ) : (
-      <PaymentForm />
+      <PaymentForm
+        checkoutToken={checkoutToken}
+        shippingData={shippingData}
+        prevStep={prevStep}
+      />
     );
 
   const Confirmation = () => <div>completed!</div>;

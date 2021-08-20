@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import { InputLabel, MenuItem, Select } from "@material-ui/core";
 
-const SelectInput = ({ value, handleOnChange, label, optionList, name }) => {
+const SelectInput = ({ value, handleOnChange, label, optionList }) => {
   return (
     <Grid item xs={12} sm={6}>
       <InputLabel align="left">{label}</InputLabel>

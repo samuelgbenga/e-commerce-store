@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,SACE,cAAe,CACf,iBAAkB,CAClB,UAAW,CACX,gBACF","file":"main.bdd4463d.chunk.css","sourcesContent":[".loading {\r\n  margin-top: 22%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.5rem;\r\n}\r\n"]}

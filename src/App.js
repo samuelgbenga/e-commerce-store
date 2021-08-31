@@ -5,6 +5,8 @@ import { commerce } from "./lib/commerce";
 import "./App.css";
 function App() {
   const [products, setProducts] = useState([]);
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   const [cart, setCart] = useState({});
 
   useEffect(() => {
@@ -61,6 +63,23 @@ function App() {
       console.log("handleEmptyCart Error", e);
     }
   };
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart);
+  };
+  const handleCheckoutCapture = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+      setOrder(incomingOrder);
+      refreshCart();
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+      console.log("[checkout capture error]", error);
+    }
+  };
 
   return (
     <Router>
@@ -82,7 +101,12 @@ function App() {
           />
         </Route>
         <Route path="/checkout">
-          <Checkout cart={cart} />
+          <Checkout
+            cart={cart}
+            order={order}
+            capture={handleCheckoutCapture}
+            error={errorMessage}
+          />
         </Route>
       </Switch>
     </Router>

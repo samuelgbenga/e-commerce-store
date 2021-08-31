@@ -13,6 +13,9 @@ import { commerce } from "../../../lib/commerce";
 import { green, blue } from "@material-ui/core/colors";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
+// import congratulations from "../../../assets/congratulations.svg";
+import { Link } from "react-router-dom";
+import stripePayment from "../../../assets/stripe_payment.svg";
 
 const theme = createTheme({
   palette: {
@@ -26,10 +29,11 @@ const theme = createTheme({
 });
 
 const steps = ["Shipping Address", "Payment Details"];
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, capture, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
+
   const classes = useStyle();
 
   useEffect(() => {
@@ -67,15 +71,64 @@ const Checkout = ({ cart }) => {
         checkoutToken={checkoutToken}
         shippingData={shippingData}
         prevStep={prevStep}
+        nextStep={nextStep}
+        capture={capture}
       />
     );
 
-  const Confirmation = () => <div>completed!</div>;
+  const Confirmation = () => (
+    <>
+      <div style={{ textAlign: "center" }} className={classes.confirmation}>
+        <div className={classes.stripePayment}>
+          <img
+            src={stripePayment}
+            alt="congratulations"
+            height="180"
+            width="150"
+            style={{ margin: 10 }}
+          />
+        </div>
+        <Typography className={classes.thankYou}>Thank You !</Typography>
+        {/* <Typography align="center">
+          Thank you for buying with us {shippingData.shippingOption}{" "}
+          {shippingData.lastName}
+        </Typography> */}
+        <Typography
+          className={classes.subThankYou}
+          align="center"
+          variant="subtitle1"
+          style={{ fontWeight: "bold" }}
+        >
+          Your Payment is Successfull
+        </Typography>
+        <Typography
+          align="center"
+          className={classes.subThankYou}
+          style={{ fontSize: 12 }}
+        >
+          Thank you for your payment. An automated payment receipt will be sent
+          to your email.
+        </Typography>
+        <div className={classes.back}>
+          <Typography
+            variant="text"
+            color="secondary"
+            align="center"
+            component={Link}
+            to="/e-commerce-store/"
+            style={{ textDecoration: "none" }}
+          >
+            Back To Home
+          </Typography>
+        </div>
+      </div>
+    </>
+  );
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <main className={classes.main}>
-          <Paper className={classes.papper}>
+          <Paper className={classes.paper}>
             <Typography variant="h4" align="center">
               Checkout
             </Typography>
@@ -94,6 +147,7 @@ const Checkout = ({ cart }) => {
           </Paper>
         </main>
       </div>
+      {console.log(shippingData)}
     </ThemeProvider>
   );
 };

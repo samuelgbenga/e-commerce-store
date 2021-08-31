@@ -10,7 +10,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import useStyle from "./styles";
 import Review from "./Review";
 
-const PaymentForm = ({ prevStep, shippingData, checkoutToken }) => {
+const PaymentForm = ({
+  prevStep,
+  shippingData,
+  checkoutToken,
+  capture,
+  nextStep,
+}) => {
   const classes = useStyle();
   const stripePromise = loadStripe(
     process.env.REACT_APP_STRIPE_PUBLIC_TEST_KEY
@@ -29,28 +35,30 @@ const PaymentForm = ({ prevStep, shippingData, checkoutToken }) => {
     if (error) {
       console.log("[error]", error);
     } else {
-      // const orderData = {
-      //   line_items: checkoutToken.live.line_items,
-      //   customer: {
-      //     Name: {
-      //       first_name: shippingData.firstName,
-      //       last_name: shippingData.lastName,
-      //     },
-      //     email: shippingData.email,
-      //   },
-      //   shipping: {
-      //     name: "primary",
-      //     city: shippingData.city,
-      //     shipping_state: shippingData.shippingSubdivision,
-      //     shipping_country: shippingData.shippingCountry,
-      //     zip_code: shippingData.zip,
-      //   },
-      //   fulfillment: { shippingMethod: checkoutToken.shipping_methods },
-      //   payment: {
-      //     gateway: "stripe",
-      //     stripe: { paymentMethod_id: checkoutToken.gateways[0].id },
-      //   },
-      // };
+      const orderData = {
+        line_items: checkoutToken.live.line_items,
+        customer: {
+          Name: {
+            first_name: shippingData.firstName,
+            last_name: shippingData.lastName,
+          },
+          email: shippingData.email,
+        },
+        shipping: {
+          name: "primary",
+          city: shippingData.city,
+          shipping_state: shippingData.shippingSubdivision,
+          shipping_country: shippingData.shippingCountry,
+          zip_code: shippingData.zip,
+        },
+        fulfillment: { shippingMethod: checkoutToken.shipping_methods },
+        payment: {
+          gateway: "stripe",
+          stripe: { paymentMethod_id: checkoutToken.gateways[0].id },
+        },
+      };
+      capture(checkoutToken.id, orderData);
+      nextStep();
       console.log("[PaymentMethod]", paymentMethod);
     }
   };

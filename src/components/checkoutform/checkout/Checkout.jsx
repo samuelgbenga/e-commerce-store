@@ -111,7 +111,7 @@ const Checkout = ({ cart, order, capture, error }) => {
         </Typography>
         <div className={classes.back}>
           <Typography
-            variant="text"
+            variant="subtitle1"
             color="secondary"
             align="center"
             component={Link}
@@ -147,7 +147,6 @@ const Checkout = ({ cart, order, capture, error }) => {
           </Paper>
         </main>
       </div>
-      {console.log(shippingData)}
     </ThemeProvider>
   );
 };

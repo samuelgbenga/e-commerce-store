@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export default makeStyles(() => ({
   root: {
     maxWidth: 800,
+    height: "55vh",
   },
   title: {
     textAlign: "left",

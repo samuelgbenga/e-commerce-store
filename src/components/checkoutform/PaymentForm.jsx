@@ -33,7 +33,7 @@ const PaymentForm = ({
     });
 
     if (error) {
-      console.log("[error]", error);
+      console.log("[error] e", error);
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
@@ -58,11 +58,11 @@ const PaymentForm = ({
         },
       };
       capture(checkoutToken.id, orderData);
-      nextStep();
+      // nextStep();
       console.log("[PaymentMethod]", paymentMethod);
     }
   };
-
+  console.log(shippingData);
   return (
     <>
       <Review checkoutToken={checkoutToken} />

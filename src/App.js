@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Products, Navbar, Cart, Checkout } from "./components";
+import { Products, Navbar, Cart, Checkout, Footer } from "./components";
 import { commerce } from "./lib/commerce";
 import "./App.css";
 function App() {
@@ -109,6 +109,7 @@ function App() {
           />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

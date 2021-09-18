@@ -7,8 +7,9 @@ const FormInput = ({ label, name, placeholder }) => {
   return (
     <Grid item xs={12} sm={6}>
       <Controller
-        render={() => (
+        render={({ field: { onChange } }) => (
           <TextField
+            onChange={onChange}
             label={label}
             placeholder={placeholder}
             fullWidth

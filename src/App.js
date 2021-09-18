@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Products, Navbar, Cart, Checkout, Footer } from "./components";
 import { commerce } from "./lib/commerce";
 import "./App.css";
+import loading from "./assets/loading.svg";
+
 function App() {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState({});
@@ -82,35 +84,39 @@ function App() {
   };
 
   return (
-    <Router>
-      <Navbar quantity={cart.total_items} />
-      <Switch>
-        <Route exact path="/e-commerce-store">
-          {products.length === 0 ? (
-            <p className="loading">Loading...</p>
-          ) : (
-            <Products products={products} handleAddToCart={handleAddToCart} />
-          )}
-        </Route>
-        <Route exact path="/cart">
-          <Cart
-            cart={cart}
-            empty={handleEmptyCart}
-            remove={handleRemoveFromCart}
-            update={handleUpdateCartQty}
-          />
-        </Route>
-        <Route path="/checkout">
-          <Checkout
-            cart={cart}
-            order={order}
-            capture={handleCheckoutCapture}
-            error={errorMessage}
-          />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+    <div className="body">
+      <Router>
+        <Navbar quantity={cart.total_items} />
+        <Switch>
+          <Route exact path="/e-commerce-store">
+            {products.length === 0 ? (
+              <div className="loading">
+                <img src={loading} alt="loading" />
+              </div>
+            ) : (
+              <Products products={products} handleAddToCart={handleAddToCart} />
+            )}
+          </Route>
+          <Route exact path="/cart">
+            <Cart
+              cart={cart}
+              empty={handleEmptyCart}
+              remove={handleRemoveFromCart}
+              update={handleUpdateCartQty}
+            />
+          </Route>
+          <Route path="/checkout">
+            <Checkout
+              cart={cart}
+              order={order}
+              capture={handleCheckoutCapture}
+              error={errorMessage}
+            />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

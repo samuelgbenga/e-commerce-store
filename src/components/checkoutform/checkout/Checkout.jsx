@@ -16,6 +16,7 @@ import PaymentForm from "../PaymentForm";
 // import congratulations from "../../../assets/congratulations.svg";
 import { Link } from "react-router-dom";
 import stripePayment from "../../../assets/stripe_payment.svg";
+import loading from "../../../assets/loading.svg";
 
 const theme = createTheme({
   palette: {
@@ -139,10 +140,15 @@ const Checkout = ({ cart, order, capture, error }) => {
                 </Step>
               ))}
             </Stepper>
+
             {activeStep === steps.length ? (
               <Confirmation />
+            ) : checkoutToken ? (
+              <Form />
             ) : (
-              checkoutToken && <Form />
+              <div style={{ textAlign: "center" }}>
+                <img src={loading} alt="Loading" />
+              </div>
             )}
           </Paper>
         </main>

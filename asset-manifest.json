@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/e-commerce-store/static/css/main.3d12bae4.chunk.css",
-    "main.js": "/e-commerce-store/static/js/main.aa9651cd.chunk.js",
-    "main.js.map": "/e-commerce-store/static/js/main.aa9651cd.chunk.js.map",
-    "runtime-main.js": "/e-commerce-store/static/js/runtime-main.4b994e47.js",
-    "runtime-main.js.map": "/e-commerce-store/static/js/runtime-main.4b994e47.js.map",
-    "static/js/2.1f24b6ba.chunk.js": "/e-commerce-store/static/js/2.1f24b6ba.chunk.js",
-    "static/js/2.1f24b6ba.chunk.js.map": "/e-commerce-store/static/js/2.1f24b6ba.chunk.js.map",
-    "static/js/3.ff2cb230.chunk.js": "/e-commerce-store/static/js/3.ff2cb230.chunk.js",
-    "static/js/3.ff2cb230.chunk.js.map": "/e-commerce-store/static/js/3.ff2cb230.chunk.js.map",
+    "main.js": "/e-commerce-store/static/js/main.2776b9b9.chunk.js",
+    "main.js.map": "/e-commerce-store/static/js/main.2776b9b9.chunk.js.map",
+    "runtime-main.js": "/e-commerce-store/static/js/runtime-main.d06ddad0.js",
+    "runtime-main.js.map": "/e-commerce-store/static/js/runtime-main.d06ddad0.js.map",
+    "static/js/2.0307831e.chunk.js": "/e-commerce-store/static/js/2.0307831e.chunk.js",
+    "static/js/2.0307831e.chunk.js.map": "/e-commerce-store/static/js/2.0307831e.chunk.js.map",
+    "static/js/3.3de0782c.chunk.js": "/e-commerce-store/static/js/3.3de0782c.chunk.js",
+    "static/js/3.3de0782c.chunk.js.map": "/e-commerce-store/static/js/3.3de0782c.chunk.js.map",
     "index.html": "/e-commerce-store/index.html",
     "static/css/main.3d12bae4.chunk.css.map": "/e-commerce-store/static/css/main.3d12bae4.chunk.css.map",
-    "static/js/2.1f24b6ba.chunk.js.LICENSE.txt": "/e-commerce-store/static/js/2.1f24b6ba.chunk.js.LICENSE.txt",
+    "static/js/2.0307831e.chunk.js.LICENSE.txt": "/e-commerce-store/static/js/2.0307831e.chunk.js.LICENSE.txt",
     "static/media/loading.3983d438.svg": "/e-commerce-store/static/media/loading.3983d438.svg",
     "static/media/logo.be646ae2.PNG": "/e-commerce-store/static/media/logo.be646ae2.PNG",
     "static/media/newBelievable9.9e5a28dd.svg": "/e-commerce-store/static/media/newBelievable9.9e5a28dd.svg",
     "static/media/stripe_payment.e65b9432.svg": "/e-commerce-store/static/media/stripe_payment.e65b9432.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4b994e47.js",
-    "static/js/2.1f24b6ba.chunk.js",
+    "static/js/runtime-main.d06ddad0.js",
+    "static/js/2.0307831e.chunk.js",
     "static/css/main.3d12bae4.chunk.css",
-    "static/js/main.aa9651cd.chunk.js"
+    "static/js/main.2776b9b9.chunk.js"
   ]
 }

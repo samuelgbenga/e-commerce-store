@@ -126,34 +126,36 @@ const Checkout = ({ cart, order, capture, error }) => {
     </>
   );
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <main className={classes.main}>
-          <Paper className={classes.paper}>
-            <Typography variant="h4" align="center">
-              Checkout
-            </Typography>
-            <Stepper activeStep={activeStep}>
-              {steps.map((step) => (
-                <Step key={step}>
-                  <StepLabel>{step}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
+    <div style={{ minHeight: "55vh" }}>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <main className={classes.main}>
+            <Paper className={classes.paper}>
+              <Typography variant="h4" align="center">
+                Checkout
+              </Typography>
+              <Stepper activeStep={activeStep}>
+                {steps.map((step) => (
+                  <Step key={step}>
+                    <StepLabel>{step}</StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
 
-            {activeStep === steps.length ? (
-              <Confirmation />
-            ) : checkoutToken ? (
-              <Form />
-            ) : (
-              <div style={{ textAlign: "center" }}>
-                <img src={loading} alt="Loading" />
-              </div>
-            )}
-          </Paper>
-        </main>
-      </div>
-    </ThemeProvider>
+              {activeStep === steps.length ? (
+                <Confirmation />
+              ) : checkoutToken ? (
+                <Form />
+              ) : (
+                <div style={{ textAlign: "center" }}>
+                  <img src={loading} alt="Loading" />
+                </div>
+              )}
+            </Paper>
+          </main>
+        </div>
+      </ThemeProvider>
+    </div>
   );
 };
 

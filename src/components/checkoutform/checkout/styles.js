@@ -3,9 +3,10 @@ import { makeStyles } from "@material-ui/core";
 export default makeStyles(() => ({
   root: {
     Width: "100%",
-
+    height: "100%",
     display: "flex",
     justifyContent: "center",
+    position: "relative",
   },
   main: {
     width: 650,

@@ -29,47 +29,53 @@ const Cart = ({ cart, empty, remove, update }) => {
   const isEmpty = cart.line_items && !cart.line_items.length;
 
   const EmptyCart = () => {
-    return <Typography variant="h5">No Item to see.</Typography>;
+    return (
+      <div style={{ height: "55vh" }}>
+        <Typography variant="h5">No Item to see.</Typography>
+      </div>
+    );
   };
   const FilledCart = () => (
-    <ThemeProvider theme={theme}>
-      <Grid container spacing={4}>
-        {cart.line_items.map((product) => (
-          <Grid item key={product.id} xs={12} sm={12} md={12} lg={12}>
-            <CartItem product={product} remove={remove} update={update} />
-          </Grid>
-        ))}
-      </Grid>
+    <div style={{ minHeight: "55vh" }}>
+      <ThemeProvider theme={theme}>
+        <Grid container spacing={4}>
+          {cart.line_items.map((product) => (
+            <Grid item key={product.id} xs={12} sm={12} md={12} lg={12}>
+              <CartItem product={product} remove={remove} update={update} />
+            </Grid>
+          ))}
+        </Grid>
 
-      <div className={classes.details}>
-        <Typography variant="h5" className={classes.subtotal}>
-          Subtotal:{cart.subtotal.formatted_with_symbol}
-        </Typography>
-        <div>
-          <Button
-            className={classes.empty}
-            size="medium"
-            type="button"
-            variant="text"
-            color="secondary"
-            onClick={empty}
-          >
-            Empty
-          </Button>
-          <Button
-            className={classes.checkout}
-            size="medium"
-            type="button"
-            variant="contained"
-            color="primary"
-            component={Link}
-            to="/checkout"
-          >
-            checkout
-          </Button>
+        <div className={classes.details}>
+          <Typography variant="h5" className={classes.subtotal}>
+            Subtotal:{cart.subtotal.formatted_with_symbol}
+          </Typography>
+          <div>
+            <Button
+              className={classes.empty}
+              size="medium"
+              type="button"
+              variant="text"
+              color="secondary"
+              onClick={empty}
+            >
+              Empty
+            </Button>
+            <Button
+              className={classes.checkout}
+              size="medium"
+              type="button"
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/checkout"
+            >
+              checkout
+            </Button>
+          </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </div>
   );
 
   if (!cart.line_items) return <div className="loading">Loading...</div>;

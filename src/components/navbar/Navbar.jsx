@@ -9,7 +9,7 @@ import {
   createTheme,
   Typography,
 } from "@material-ui/core";
-import { ShoppingCart } from "@material-ui/icons";
+// import { ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/logo.PNG";
 import useStyle from "./styles";
 import { green, blue } from "@material-ui/core/colors";
@@ -38,7 +38,8 @@ const Navbar = ({ quantity }) => {
           {location.pathname === "/e-commerce-store/" && (
             <IconButton aria-label="cart" component={Link} to="/cart">
               <Badge badgeContent={quantity} color="primary">
-                <ShoppingCart />
+                {/* <ShoppingCart /> */}
+                🛒
               </Badge>
             </IconButton>
           )}

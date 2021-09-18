@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 export default makeStyles(() => ({
   productsRoot: {
     margin: "20px",
+    padding: "0 50px",
     height: "100%",
   },
   root: {

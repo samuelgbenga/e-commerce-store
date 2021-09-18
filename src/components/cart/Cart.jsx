@@ -9,7 +9,7 @@ import {
   createTheme,
   ThemeProvider,
 } from "@material-ui/core";
-import { ShoppingBasket } from "@material-ui/icons";
+// import { ShoppingBasket } from "@material-ui/icons";
 import samuel from "./style";
 import { green, blue } from "@material-ui/core/colors";
 
@@ -87,7 +87,7 @@ const Cart = ({ cart, empty, remove, update }) => {
       {isEmpty ? <EmptyCart /> : <FilledCart />}
       <div className={classes.getMore}>
         <Link to="/e-commerce-store/" className={classes.link}>
-          GET MORE ITEMS!!! <ShoppingBasket />
+          GET MORE ITEMS!!! 🛒
         </Link>
       </div>
     </Container>

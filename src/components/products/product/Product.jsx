@@ -6,9 +6,14 @@ import {
   IconButton,
   CardActions,
   Typography,
+  Badge,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+// import { AddShoppingCart } from "@material-ui/icons";
+// import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import useStyle from "./style";
+//import AddCartIcon from "../../../assets/addCartIcon.png";
 
 const Product = ({ product, handleAddToCart }) => {
   const classes = useStyle();
@@ -37,7 +42,12 @@ const Product = ({ product, handleAddToCart }) => {
             aria-label="Add to Cart"
             onClick={() => handleAddToCart(product.id, 1)}
           >
-            <AddShoppingCart />
+            {/* <AddShoppingCart /> */}
+            {/* <AddCartIcon /> */}
+            <Badge badgeContent="+" color="primary">
+              🛒
+            </Badge>
+            {/* <AddShoppingCartIcon /> */}
           </IconButton>
         </CardActions>
       </div>

@@ -5,8 +5,12 @@
   "homepage": "https://samuelgbenga.github.io/e-commerce-store",
   "dependencies": {
     "@chec/commerce.js": "^2.7.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.0.0",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.16.0",
     "@testing-library/jest-dom": "^5.14.1",

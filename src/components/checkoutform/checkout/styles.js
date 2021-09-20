@@ -9,7 +9,11 @@ export default makeStyles(() => ({
     position: "relative",
   },
   main: {
-    width: 650,
+    // width: "500px",
+    width: "600px",
+    "@media(max-width:780px)": {
+      width: "80%",
+    },
   },
   paper: {
     padding: "30px 20px",

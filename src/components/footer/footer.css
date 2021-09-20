@@ -32,6 +32,17 @@
   padding: 40px;
   margin: 15px;
 } */
+.right-side {
+  padding: 0 10px;
+}
+.left-side {
+  background-color: blue;
+}
+/* @media (max-width: 600px) {
+  .footer-container {
+    font-size: 12px;
+  }
+} */
 .copy-right {
   color: rgba(255, 255, 255, 0.3);
   font-size: small;

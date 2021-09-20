@@ -16,11 +16,16 @@ const Footer = () => {
         </p>
         <p>Samuel Built with 💗</p>
       </div> */}
-      <Name />
-      <p className="copy-right">
-        copyright ＠ 2021 CREATING GREAT STANDARD HUB All Rights Reserved{" "}
-      </p>
-      <p>Samuel Built with 💗</p>
+      <div className="left-side">
+        <Name />
+      </div>
+
+      <div className="right-side">
+        <p className="copy-right">
+          copyright ＠ 2021 CREATING GREAT STANDARD HUB All Rights Reserved{" "}
+        </p>
+        <p>Samuel Built with 💗</p>
+      </div>
     </div>
   );
 };

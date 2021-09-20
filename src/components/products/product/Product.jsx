@@ -44,7 +44,7 @@ const Product = ({ product, handleAddToCart }) => {
           >
             {/* <AddShoppingCart /> */}
             {/* <AddCartIcon /> */}
-            <Badge badgeContent="+" color="primary">
+            <Badge badgeContent="+" color="secondary">
               🛒
             </Badge>
             {/* <AddShoppingCartIcon /> */}

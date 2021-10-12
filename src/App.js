@@ -116,6 +116,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      {console.log(order, errorMessage)}
     </div>
   );
 }

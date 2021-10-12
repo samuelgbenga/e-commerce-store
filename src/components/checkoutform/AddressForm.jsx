@@ -146,20 +146,20 @@ const AddressForm = ({ checkoutToken, next }) => {
           </Grid>
           <div className={classes.addressButtons}>
             <Button
-              component={Link}
-              to="/cart"
-              variant="outlined"
-              className={classes.addressButton}
-            >
-              Back To Cart
-            </Button>
-            <Button
               type="submit"
               variant="contained"
               color="primary"
               className={classes.addressButton}
             >
               Next
+            </Button>
+            <Button
+              component={Link}
+              to="/cart"
+              variant="outlined"
+              className={classes.addressButton}
+            >
+              Back To Cart
             </Button>
           </div>
         </form>

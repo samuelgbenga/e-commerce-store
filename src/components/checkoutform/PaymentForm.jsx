@@ -16,12 +16,15 @@ const PaymentForm = ({
   checkoutToken,
   capture,
   nextStep,
+  confirm,
 }) => {
   const classes = useStyle();
   const stripePromise = loadStripe(
     process.env.REACT_APP_STRIPE_PUBLIC_TEST_KEY
   );
-
+  const handleConfirm = () => {
+    confirm(true);
+  };
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
     if (!stripe || !elements) return;
@@ -58,11 +61,12 @@ const PaymentForm = ({
         },
       };
       capture(checkoutToken.id, orderData);
-      // nextStep();
+      nextStep();
+      handleConfirm();
       console.log("[PaymentMethod]", paymentMethod);
     }
   };
-  console.log(shippingData);
+  // console.log(shippingData);
   return (
     <>
       <Review checkoutToken={checkoutToken} />

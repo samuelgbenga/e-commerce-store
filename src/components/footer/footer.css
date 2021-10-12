@@ -38,14 +38,24 @@
 .left-side {
   background-color: blue;
 }
-/* @media (max-width: 600px) {
-  .footer-container {
-    font-size: 12px;
-  }
-} */
+
 .copy-right {
   color: rgba(255, 255, 255, 0.3);
   font-size: small;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 60px;
+}
+@media (max-width: 716px) {
+  .footer-container {
+    height: 40vh;
+  }
+  .copy-right {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 170px;
+  }
+  .name {
+    margin-left: 37%;
+  }
 }

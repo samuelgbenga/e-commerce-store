@@ -12,10 +12,12 @@ export default makeStyles(() => ({
   addressButtons: {
     marginTop: 40,
     display: "flex",
-    justifyContent: "space-around",
+    flexDirection: "column",
+    gap: 10,
+    width: "100%",
   },
   addressButton: {
-    width: 200,
+    width: "100%",
     height: "auto",
   },
   paymentButtons: {

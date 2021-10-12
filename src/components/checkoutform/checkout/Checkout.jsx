@@ -34,7 +34,7 @@ const Checkout = ({ cart, order, capture, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
-
+  const [confirm, setConfirm] = useState(false);
   const classes = useStyle();
 
   useEffect(() => {
@@ -73,58 +73,70 @@ const Checkout = ({ cart, order, capture, error }) => {
         shippingData={shippingData}
         prevStep={prevStep}
         nextStep={nextStep}
+        confirm={(object) => setConfirm(object)}
         capture={capture}
       />
     );
 
-  const Confirmation = () => (
-    <>
-      <div style={{ textAlign: "center" }} className={classes.confirmation}>
-        <div className={classes.stripePayment}>
-          <img
-            src={stripePayment}
-            alt="congratulations"
-            height="180"
-            width="150"
-            style={{ margin: 10 }}
-          />
-        </div>
-        <Typography className={classes.thankYou}>Thank You !</Typography>
-        {/* <Typography align="center">
+  const Confirmation = () => {
+    setTimeout(function () {
+      setConfirm(false);
+    }, 3000);
+    return (
+      <>
+        <div style={{ textAlign: "center" }} className={classes.confirmation}>
+          {confirm ? (
+            <img src={loading} alt="Loading" />
+          ) : (
+            <div>
+              <div className={classes.stripePayment}>
+                <img
+                  src={stripePayment}
+                  alt="congratulations"
+                  height="180"
+                  width="150"
+                  style={{ margin: 10 }}
+                />
+              </div>
+              <Typography className={classes.thankYou}>Thank You !</Typography>
+              {/* <Typography align="center">
           Thank you for buying with us {shippingData.shippingOption}{" "}
           {shippingData.lastName}
         </Typography> */}
-        <Typography
-          className={classes.subThankYou}
-          align="center"
-          variant="subtitle1"
-          style={{ fontWeight: "bold" }}
-        >
-          Your Payment is Successfull
-        </Typography>
-        <Typography
-          align="center"
-          className={classes.subThankYou}
-          style={{ fontSize: 12 }}
-        >
-          Thank you for your payment. An automated payment receipt will be sent
-          to your email.
-        </Typography>
-        <div className={classes.back}>
-          <Typography
-            variant="subtitle1"
-            color="secondary"
-            align="center"
-            component={Link}
-            to="/e-commerce-store/"
-            style={{ textDecoration: "none" }}
-          >
-            Back To Home
-          </Typography>
+              <Typography
+                className={classes.subThankYou}
+                align="center"
+                variant="subtitle1"
+                style={{ fontWeight: "bold" }}
+              >
+                Your Payment is Successful
+              </Typography>
+              <Typography
+                align="center"
+                className={classes.subThankYou}
+                style={{ fontSize: 12 }}
+              >
+                Thank you for your payment. An automated payment receipt will be
+                sent to your email.
+              </Typography>
+            </div>
+          )}
+          <div className={classes.back}>
+            <Typography
+              variant="subtitle1"
+              color="secondary"
+              align="center"
+              component={Link}
+              to="/e-commerce-store/"
+              style={{ textDecoration: "none" }}
+            >
+              Back To Home
+            </Typography>
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  };
   return (
     <div style={{ minHeight: "55vh" }}>
       <ThemeProvider theme={theme}>
@@ -155,6 +167,7 @@ const Checkout = ({ cart, order, capture, error }) => {
           </main>
         </div>
       </ThemeProvider>
+      {/* {console.log(order, error)} */}
     </div>
   );
 };

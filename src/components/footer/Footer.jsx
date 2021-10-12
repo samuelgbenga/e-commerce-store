@@ -16,9 +16,8 @@ const Footer = () => {
         </p>
         <p>Samuel Built with 💗</p>
       </div> */}
-      <div className="left-side">
-        <Name />
-      </div>
+
+      <Name className="name" />
 
       <div className="right-side">
         <p className="copy-right">
